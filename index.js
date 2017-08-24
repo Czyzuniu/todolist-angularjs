@@ -226,7 +226,7 @@ app.controller("myTodoCtrl", function($scope) {
         }
 
         if(selected){
-          if(key.which == 39){
+          if(key.which == 39 && innerLength > 0){
             selectedInner = true;
             let inners = window.sortable.children[selectedList].querySelectorAll('ul');
             inners[selectedListInner].classList.add('selectedInner')
@@ -236,6 +236,7 @@ app.controller("myTodoCtrl", function($scope) {
         if(selected && selectedInner == true){
           if(key.which == 37){
             selectedInner = false;
+            selectedListInner = 0;
             let inners = window.sortable.children[selectedList].querySelectorAll('ul');
             for(let i of inners){
               i.classList.remove('selectedInner')
